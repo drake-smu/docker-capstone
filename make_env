@@ -1,0 +1,4 @@
+NS=drakec
+IMAGE_NAME=capstone
+VOLUMES = -v ${PWD}:/app
+PORTS = -p 8889:8888/tcp
