@@ -1,5 +1,5 @@
 
-FROM tensorflow/tensorflow:2.1.0-gpu-py3-jupyter
+FROM tensorflow/tensorflow:1.13.2-gpu-py3-jupyter
 
 LABEL maintainer="drakec"
 
