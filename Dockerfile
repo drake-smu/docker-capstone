@@ -8,29 +8,17 @@ USER root
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
-    locale-gen
-
-# Configure environment
-ENV SHELL=/bin/bash \
-    LC_ALL=en_US.UTF-8 \
-    LANG=en_US.UTF-8 \
-    LANGUAGE=en_US.UTF-8
-
-
 # Install Python 3 packages
 ####################################################
 
 # Install python3 and pip package manager
-RUN cd /usr/local/bin \
-  && ln -s /usr/bin/python3 python \
-  && pip3 install --upgrade pip 
+RUN pip install --upgrade pip 
 
 # Copy requirements for python3 [requirements3.txt]
 COPY requirements3.txt /app/
 
 # Install python3 packages ... (only neo 0.5.2 will import Spike2 files)
-RUN pip3 install \
+RUN pip install \
   --no-cache-dir \
   -r /app/requirements3.txt
 
